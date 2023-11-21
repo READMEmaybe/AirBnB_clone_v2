@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" db storage class"""
 from os import getenv
 from models.base_model import Base, Amenity, City, Place, Review, State, User
 from sqlalchemy import create_engine
