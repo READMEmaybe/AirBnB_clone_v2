@@ -29,7 +29,7 @@ class DBStorage:
         else:
             cls = eval(cls) if isinstance(cls, str) else cls
             objs = self.__session.query(cls).all()
-        return {f"{type(o).__name__}.{o.id}": o for obj_list in objs for o in obj_list}
+        return {"{}.{}".format(type(o).__name__, o.id): o for o in objs}
 
     def new(self, obj):
         self.__session.add(obj)
