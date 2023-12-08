@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """Fabric script that creates and distributes an archive to your web servers,
 using the function deploy"""
-from fabric.api import local, put, run, env
+from fabric.api import local, put, run, env, runs_once
 from datetime import datetime
 import os.path
 
 env.hosts = ['100.25.180.19', '100.24.244.121']
 
 
+@runs_once
 def do_pack():
     """Function to generate a .tgz archive from the contents of the web_static
     folder of the AirBnB Clone repo."""
